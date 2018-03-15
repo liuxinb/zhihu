@@ -104,9 +104,9 @@ Zhi Hu 后台用户
 
                                             <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
                                               <div class="am-modal-dialog">
-                                                <div class="am-modal-hd">Amaze UI</div>
+                                                <div class="am-modal-hd">用户-详情</div>
                                                 <div class="am-modal-bd">
-                                                  Hello world！
+
                                                 </div>
                                                 <div class="am-modal-footer">
                                                   <span class="am-modal-btn">确定</span>
@@ -160,14 +160,45 @@ Zhi Hu 后台用户
 
             //获取点击id
             var id = $(this).attr("id");
-
+            // alert(id);
             //发送Ajax
             $.get('users',{uid:id},function(data){
-                console.log(data);
+                // console.log(data);
+                // alert(data);
                 // $(".am-modal-bd").html(data);
-                var json = eval('(' + data + ')');
-                console.log(json);
+                eval('var json ='+data );
+                // console.log(json);
+                // $(".am-modal-bd").html(json);
+                for (var i = 0; i < json.length; i++) {
+                    // console.log(json[i]['uname']);
+                    var app = `
+                        <table class="am-table">
+                            <thead>
+                                <tr>
+                                    <th>用户名</th>
+                                    <th>头像</th>
+                                    <th>号码</th>
+                                    <th>邮箱</th>
+                                    <th>权限</th>
+                                </tr>
 
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>`+json[i]['uname']+`</td>
+                                    <td><img width="60px" height="60px" src=`+json[i]['map']+` alt='' onerror='this.src="/uploade/default.jpg"'></td>
+                                    <td>`+json[i]['phone']+`</td>
+                                    <td>`+json[i]['mail']+`</td>
+                                    <td>`+json[i]['privileges']+`</td>
+                                </tr>
+
+                            </tbody>
+
+                    </table>
+                    `;
+                    $(".am-modal-bd").html(app);
+
+                };
 
             })
 
