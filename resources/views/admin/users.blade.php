@@ -7,7 +7,62 @@ Zhi Hu 后台用户
 @endsection
 
 @section('content')
+            <!--新增用户-->
+            <div class="am-popup" id="my-popup">
+              <div class="am-popup-inner">
+                <div class="am-popup-hd">
+                  <h4 class="am-popup-title">...</h4>
+                  <span data-am-modal-close
+                        class="am-close">&times;</span>
+                </div><br>
+                <div class="am-popup-bd">
+                  <form action="" class="am-form" data-am-validator>
+              <fieldset>
+                <legend>Users 用户添加</legend>
+                <div class="am-form-group">
+                  <label for="doc-vld-name-2">用户名：</label>
+                  <input type="text" id="doc-vld-name-2" minlength="3" placeholder="输入用户名（至少 3 个字符）" required/>
+                </div>
 
+                <div class="am-form-group">
+                  <label for="doc-ipt-file-1">头像上传域</label>
+                  <input type="file" id="doc-ipt-file-1">
+                  <p class="am-form-help">请选择要上传的头像...</p>
+                </div>
+
+                <div class="am-form-group">
+                  <label for="doc-vld-email-2">邮箱：</label>
+                  <input type="email" id="doc-vld-email-2" placeholder="输入邮箱" required/>
+                </div>
+
+                <div class="am-form-group">
+                  <label for="doc-vld-email-2">手机号：</label>
+                  <input type="email" id="doc-vld-email-2" placeholder="输入手机号" required/>
+                </div>
+
+                <div class="am-form-group">
+                  <label for="doc-select-1">权限单选框</label>
+                  <select id="doc-select-1" required>
+                    <option value="">-=请选择一项=-</option>
+                    <option value="option1">普通用户</option>
+                    <option value="option2">超级管理员</option>
+
+                  </select>
+                  <span class="am-form-caret"></span>
+                </div>
+
+                <div class="am-form-group">
+                  <label for="doc-vld-ta-2">个人简介：</label>
+                  <textarea id="doc-vld-ta-2" minlength="10" maxlength="100"></textarea>
+                </div>
+
+                <button class="am-btn am-btn-secondary" type="submit">提交</button>
+              </fieldset>
+            </form>
+                </div>
+              </div>
+            </div>
+            <!--结束-->
             <div class="tpl-portlet-components">
                 <div class="portlet-title">
                     <div class="caption font-green bold">
@@ -28,7 +83,7 @@ Zhi Hu 后台用户
                         <div class="am-u-sm-12 am-u-md-6">
                             <div class="am-btn-toolbar">
                                 <div class="am-btn-group am-btn-group-xs">
-                                    <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
+                                    <button type="button" class="am-btn am-btn-default am-btn-success" data-am-modal="{target: '#my-popup'}"><span class="am-icon-plus"></span> 新增</button>
                                     <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-save"></span> 保存</button>
                                     <button type="button" class="am-btn am-btn-default am-btn-warning"><span class="am-icon-archive"></span> 审核</button>
                                     <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 删除</button>
@@ -191,10 +246,10 @@ Zhi Hu 后台用户
                                     <td>`+json[i]['mail']+`</td>
                                     <td>`+json[i]['privileges']+`</td>
                                 </tr>
-
                             </tbody>
-
                     </table>
+                    <div style="float:left;">个人简介：</div>
+                    <span style="float:left;">`+json[i]['intro']+`</span>
                     `;
                     $(".am-modal-bd").html(app);
 
