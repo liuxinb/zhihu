@@ -47,5 +47,4 @@ Route::get('admin/list', function () {
 
     /*---------后台功能------------*/
 
-    // Route::resource('users', 'App\Http\Controllers\admin\usersController');
-    // Route::get('users', 'userController@index');
+    Route::resource('admin/users', 'Admin\usersController');
