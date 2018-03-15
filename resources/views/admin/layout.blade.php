@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title')</title>
     <meta name="description" content="@yield('title')">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="keywords" content="index">
     <met/admin="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
@@ -17,6 +18,8 @@
     <link rel="stylesheet" href="/admin/css/admin.css">
     <link rel="stylesheet" href="/admin/css/app.css">
     <script src="/admin/js/echarts.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
 </head>
 
 <body data-type="index">
