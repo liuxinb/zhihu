@@ -33,7 +33,7 @@
 |eid | int | 11 | N | 用户表主键ID
 |title| varchar | 20 | N | 文章标题
 |comment | varchar | 255 | N | 文章内容
-|review | varchar(255) | N | 评论
+|review | varchar | 255 | N | 评论
 |essay_praise |  int | 11 | N  | 获赞数
 |essay_incognito| enum | 0,1 | N | 匿名回答勾选
 
